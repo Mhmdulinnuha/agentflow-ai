@@ -1,0 +1,135 @@
+
+# ==========================================
+# ENVIRONMENT & SECRETS
+# ==========================================
+.env
+.env.*
+!.env.example
+!.env.template
+*.pem
+*.key
+secrets/
+credentials/
+
+# ==========================================
+# PYTHON / FASTAPI / BACKEND
+# ==========================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+ENV/
+env/
+pip-wheel-metadata/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+dist/
+build/
+*.egg-info/
+
+# ==========================================
+# ALEMBIC
+# ==========================================
+# Jangan abaikan alembic/versions.
+# File migration harus masuk Git.
+
+# ==========================================
+# NEXT.JS / FRONTEND
+# ==========================================
+node_modules/
+.next/
+out/
+build/
+dist/
+.turbo/
+.vercel/
+*.tsbuildinfo
+next-env.d.ts
+
+# ==========================================
+# NODE / PACKAGE MANAGERS
+# ==========================================
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+lerna-debug.log*
+.npm/
+.pnpm-store/
+
+# ==========================================
+# IDE / EDITOR
+# ==========================================
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# ==========================================
+# OPERATING SYSTEM
+# ==========================================
+.DS_Store
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# ==========================================
+# DATABASE / BACKUP
+# ==========================================
+*.sql
+*.sqlite
+*.sqlite3
+*.db
+*.dump
+*.bak
+
+# ==========================================
+# LOGS
+# ==========================================
+logs/
+*.log
+
+# ==========================================
+# DOCKER / TEMPORARY
+# ==========================================
+docker-compose.override.yml
+*.pid
+*.seed
+tmp/
+temp/
+
+# ==========================================
+# AI MODELS / VECTOR DATA
+# ==========================================
+models/
+ollama_models/
+*.gguf
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.onnx
+
+# ==========================================
+# GENERATED DATA / STORAGE
+# ==========================================
+storage/*
+!storage/.gitkeep
+uploads/
+data/
+chroma_db/
+vector_db/
+faiss_index/
+
+# ==========================================
+# TEST / COVERAGE
+# ==========================================
+coverage/
+.nyc_output/

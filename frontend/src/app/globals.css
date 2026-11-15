@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+:root { color-scheme: dark; --bg:#090b10; --panel:#11151d; --panel2:#151b25; --line:#222a37; --muted:#8792a5; --text:#edf1f7; --accent:#8b7cff; --accent2:#6d5dfc; }
+* { box-sizing:border-box; }
+html,body { min-height:100%; }
+body { margin:0; background:var(--bg); color:var(--text); font-family:Arial, Helvetica, sans-serif; font-size:14px; }
+button,input,textarea,select { font:inherit; }
+button { cursor:pointer; }
+a { color:inherit; text-decoration:none; }
+.app-shell { min-height:100vh; }
+.sidebar { width:248px; position:fixed; inset:0 auto 0 0; z-index:20; background:#0d1017; border-right:1px solid var(--line); display:flex; flex-direction:column; padding:22px 14px; }
+.main-area { margin-left:248px; min-height:100vh; }
+.topbar { height:72px; border-bottom:1px solid var(--line); display:flex; align-items:center; justify-content:space-between; padding:0 34px; background:rgba(9,11,16,.82); position:sticky; top:0; z-index:10; backdrop-filter:blur(16px); }
+.page-wrap { max-width:1440px; margin:0 auto; padding:32px 34px 48px; }
+.brand-mark { width:34px;height:34px;border-radius:11px;display:grid;place-items:center;background:linear-gradient(135deg,#a99dff,#6756f5);color:white;box-shadow:0 6px 24px #7664ff40; }
+.nav-label { color:#626e80; font-size:10px; font-weight:700; letter-spacing:.13em; padding:22px 11px 9px; text-transform:uppercase; }
+.nav-link { display:flex; align-items:center; gap:12px; padding:10px 11px; border-radius:9px; color:#98a2b3; margin:2px 0; transition:.18s; }
+.nav-link:hover { background:#171d28; color:white; }
+.nav-link.active { color:white; background:#211e3d; box-shadow:inset 2px 0 #9588ff; }
+.card { background:var(--panel); border:1px solid var(--line); border-radius:14px; }
+.card-soft { background:var(--panel2); border:1px solid var(--line); border-radius:12px; }
+.muted { color:var(--muted); }
+.eyebrow { color:#9d91ff; font-size:11px; text-transform:uppercase; letter-spacing:.12em; font-weight:700; }
+.page-title { font-size:27px; line-height:1.2; font-weight:700; letter-spacing:-.04em; }
+.page-subtitle { color:var(--muted); margin-top:7px; font-size:13px; }
+.btn { display:inline-flex; align-items:center; justify-content:center; gap:8px; border-radius:9px; padding:9px 13px; border:1px solid var(--line); background:#171d28; color:#e8ebf2; font-size:12px; font-weight:600; }
+.btn:hover { border-color:#514a85; background:#1c2230; }
+.btn-primary { background:#7565f5; border-color:#7565f5; color:white; }
+.btn-primary:hover { background:#6655e8; }
+.input { width:100%; border:1px solid var(--line); background:#0c1017; color:white; border-radius:9px; padding:10px 12px; outline:none; }
+.input:focus { border-color:#7565f5; box-shadow:0 0 0 3px #7565f522; }
+.badge { display:inline-flex; align-items:center; gap:5px; border:1px solid var(--line); border-radius:99px; padding:4px 8px; color:#aab3c2; font-size:10px; white-space:nowrap; }
+.badge.green { color:#66d7a1; border-color:#24533f; background:#10251d; }
+.badge.purple { color:#b5aaff; border-color:#40396d; background:#201d39; }
+.badge.amber { color:#e9bd75; border-color:#59462b; background:#292013; }
+.table-row { display:grid; grid-template-columns:1.5fr 1fr 1fr 110px; gap:14px; padding:14px 18px; align-items:center; border-top:1px solid var(--line); }
+.stat-value { font-size:26px; font-weight:700; letter-spacing:-.04em; margin-top:12px; }
+.stat-label { color:#a0aabb; font-size:12px; }
+.avatar { width:32px;height:32px;border-radius:10px;display:grid;place-items:center;background:#292448;color:#bdb4ff;font-size:11px;font-weight:700; }
+@media(max-width:900px) { .sidebar{width:72px;padding:18px 10px}.sidebar .brand-text,.sidebar .nav-text,.sidebar .nav-label,.sidebar .workspace-text,.sidebar .sidebar-footer{display:none}.sidebar .nav-link{justify-content:center;padding:12px 8px}.main-area{margin-left:72px}.topbar{padding:0 20px}.page-wrap{padding:25px 20px} }
+@media(max-width:620px) { .sidebar{display:none}.main-area{margin-left:0}.topbar{height:62px;padding:0 16px}.page-wrap{padding:22px 15px}.page-title{font-size:23px}.mobile-hide{display:none}.table-row{grid-template-columns:1fr 1fr}.table-row > :nth-child(3),.table-row > :nth-child(4){display:none} }

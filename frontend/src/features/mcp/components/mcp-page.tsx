@@ -1,0 +1,13 @@
+"use client";
+import { useState } from "react";
+import { Plug, Plus, Server, Terminal, Wrench } from "lucide-react";
+import { PageHeader,Status } from "@/components/ui";
+const initial=[{name:"Knowledge Tools",description:"Search and retrieve documents from your workspace.",transport:"stdio",tools:4,status:"Disconnected"},{name:"Filesystem",description:"Sandboxed file access for agent workflows.",transport:"stdio",tools:3,status:"Disconnected"},{name:"GitHub",description:"Repository issues, pull requests, and code context.",transport:"HTTP",tools:8,status:"Not configured"}];
+export function McpPage(){const [servers,setServers]=useState(initial);return <><PageHeader eyebrow="MODEL CONTEXT PROTOCOL" title="MCP Servers" description="Connect external tools and data sources to your AI agents." action={<button className="btn btn-primary" onClick={()=>setServers([{name:"New MCP Server",description:"Configure your MCP server connection.",transport:"stdio",tools:0,status:"Not configured"},...servers])}><Plus size={15}/> Add server</button>}/><div className="card p-4 mb-5 flex gap-3"><div className="w-9 h-9 rounded-lg bg-violet-500/10 text-violet-300 grid place-items-center"><Plug size={17}/></div><div><div className="text-sm font-semibold">What is MCP?</div><p className="muted text-xs mt-1 leading-5">Model Context Protocol lets your agents connect to external tools and context through a standardized interface.</p></div></div><div className="grid grid-cols-1 lg:grid-cols-2 gap-3">{servers.map(s=><div key={s.name} className="card p-5"><div className="flex items-start justify-between"><div className="w-10 h-10 rounded-xl bg-slate-800 grid place-items-center text-violet-300"><Server size={18}/></div><Status value={s.status}/></div><div className="font-semibold mt-4">{s.name}</div><p className="muted text-xs mt-2 leading-5 min-h-10">{s.description}</p><div className="flex gap-2 mt-4"><span className="badge">{s.transport}</span><span className="badge"><Wrench size={11}/>{s.tools} tools</span></div><div className="border-t border-slate-800 mt-5 pt-4 flex justify-between"><span className="text-[10px] text-slate-500">Connection details not set</span><button className="btn">Configure</button></div></div>)}</div><div className="card p-5 mt-5"><div className="flex items-center gap-2 text-sm font-semibold"><Terminal size={15} className="text-violet-300"/> MCP configuration example</div><pre className="text-[11px] text-slate-300 bg-[#090c12] rounded-lg p-4 mt-3 overflow-x-auto">{`{
+  "mcpServers": {
+    "knowledge": {
+      "command": "python",
+      "args": ["-m", "agentflow_mcp.knowledge"]
+    }
+  }
+}`}</pre></div></>}
