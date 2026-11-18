@@ -22,7 +22,7 @@ def verify_password(
         hash_password,
     )
     
-def create_acces_token(user_id: int) -> str:
+def create_access_token(user_id: int) -> str:
     """Membuat JWT access token."""
     
     now = datetime.now(timezone.utc)

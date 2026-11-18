@@ -9,8 +9,8 @@ from app.core.config import settings
 from app.core.security import (
     hash_password,
     verify_password,
-    create_access_token,
     create_refresh_token,
+    create_access_token,
     hash_refresh_token,
     get_refresh_token_expiry,
 )
@@ -36,6 +36,7 @@ class AuthService:
             db,
             refresh_record,
         )
+        
 
         access_token = create_access_token(user.id)
 
@@ -68,6 +69,8 @@ class AuthService:
 
         try:
             AuthRepository.create_user(db, user)
+            
+            db.flush()
 
             tokens = AuthService._create_token_pair(
                 db,
