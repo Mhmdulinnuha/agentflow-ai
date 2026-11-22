@@ -2,7 +2,7 @@ from datetime import datetime
 from pydantic import BaseModel, Field, ConfigDict
 
 # Digunakan ketika user membuat workspace
-class WorkSpaceCreate(BaseModel):
+class WorkspaceCreate(BaseModel):
     
     name:str = Field(
         max_length=150,
